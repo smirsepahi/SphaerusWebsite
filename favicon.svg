@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" fill="#000000"/>
+  <!-- Base -->
+  <rect x="6" y="56" width="52" height="4" rx="0" fill="#ffffff" opacity="0.95"/>
+  <rect x="10" y="50" width="44" height="6" rx="0" fill="#ffffff" opacity="0.95"/>
+  <!-- Shaft flutes -->
+  <rect x="13" y="19" width="3.5" height="31" rx="1" fill="#ffffff" opacity="0.9"/>
+  <rect x="18.5" y="19" width="3.5" height="31" rx="1" fill="#ffffff" opacity="0.9"/>
+  <rect x="24" y="19" width="3.5" height="31" rx="1" fill="#ffffff" opacity="0.9"/>
+  <rect x="29.5" y="19" width="3.5" height="31" rx="1" fill="#ffffff" opacity="0.9"/>
+  <rect x="35" y="19" width="3.5" height="31" rx="1" fill="#ffffff" opacity="0.9"/>
+  <rect x="40.5" y="19" width="3.5" height="31" rx="1" fill="#ffffff" opacity="0.9"/>
+  <rect x="46" y="19" width="3.5" height="31" rx="1" fill="#ffffff" opacity="0.9"/>
+  <!-- Capital -->
+  <rect x="4" y="13" width="56" height="4" rx="0" fill="#ffffff" opacity="0.95"/>
+  <rect x="8" y="17" width="48" height="2" rx="0" fill="#ffffff" opacity="0.95"/>
+  <!-- Volutes -->
+  <path d="M8 14 Q8 6 16 6 Q21 6 21 11" stroke="#ffffff" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.9"/>
+  <path d="M56 14 Q56 6 48 6 Q43 6 43 11" stroke="#ffffff" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.9"/>
+  <circle cx="16" cy="8" r="2.5" fill="#ffffff" opacity="0.9"/>
+  <circle cx="48" cy="8" r="2.5" fill="#ffffff" opacity="0.9"/>
+</svg>
