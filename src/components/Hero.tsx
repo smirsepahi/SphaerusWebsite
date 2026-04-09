@@ -2,111 +2,62 @@ import { motion } from 'framer-motion'
 
 export default function Hero() {
   return (
-    <section className="relative h-screen w-full overflow-hidden flex items-center justify-center">
-      {/* Video Background Placeholder */}
-      <div className="absolute inset-0 bg-[#0d0d0d] flex items-center justify-center">
-        {/* Subtle grid pattern overlay */}
-        <div
-          className="absolute inset-0 opacity-[0.03]"
-          style={{
-            backgroundImage:
-              'linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)',
-            backgroundSize: '60px 60px',
-          }}
-        />
-        <span className="font-mono text-[12px] tracking-[0.2em] uppercase text-[rgba(255,255,255,0.08)]">
-          Video Background
-        </span>
-      </div>
-
-      {/* Dark overlay */}
-      <div className="absolute inset-0 bg-[rgba(0,0,0,0.4)]" />
-
-      {/* Radial glow */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_40%,rgba(0,102,255,0.06)_0%,transparent_60%)]" />
-
-      {/* Content */}
-      <div className="relative z-10 max-w-site mx-auto px-10 text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-        >
-          {/* Eyebrow */}
-          <div className="font-mono text-[11px] tracking-[0.3em] uppercase text-accent mb-6">
-            Commercial Real Estate AI
-          </div>
-
-          {/* Headline */}
-          <h1 className="font-heading text-[3rem] md:text-[4rem] lg:text-[5rem] font-bold tracking-tight leading-[1.05] text-white mb-6">
-            The AI layer
-            <br />
-            your deals deserve.
-          </h1>
-
-          {/* Subheadline */}
-          <p className="font-mono text-[14px] md:text-[15px] leading-[1.8] text-[rgba(255,255,255,0.5)] max-w-[640px] mx-auto mb-10">
-            Custom automations and intelligent tools built for CRE professionals —
-            across every role, every deal, every stage of the lifecycle.
-          </p>
-
-          {/* CTAs */}
-          <div className="flex items-center justify-center gap-4 flex-wrap">
-            <a
-              href="#contact"
-              className="inline-flex items-center px-8 py-3.5 bg-accent text-white font-mono text-[12px] tracking-[0.08em] uppercase border border-accent hover:bg-transparent hover:border-accent transition-all duration-300"
-            >
-              Book a Discovery Call
-            </a>
-            <a
-              href="#services"
-              className="inline-flex items-center px-8 py-3.5 bg-transparent text-white font-mono text-[12px] tracking-[0.08em] uppercase border border-[rgba(255,255,255,0.15)] hover:border-[rgba(255,255,255,0.4)] transition-all duration-300"
-            >
-              See What We Build
-            </a>
-          </div>
-        </motion.div>
-
-        {/* Stats */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-          className="mt-20 flex items-center justify-center gap-0 flex-wrap"
-        >
-          {[
-            { num: '80%', label: 'Faster Underwriting' },
-            { num: '10+', label: 'Hours Saved / Analyst / Week' },
-            { num: '60%', label: 'Less LP Reporting Time' },
-          ].map((stat, i) => (
-            <div key={i} className="flex items-center">
-              {i > 0 && (
-                <div className="w-px h-10 bg-[rgba(255,255,255,0.1)] mx-8 hidden sm:block" />
-              )}
-              <div className="text-center px-4 py-2">
-                <div className="font-heading text-[28px] font-bold text-white tracking-tight">
-                  {stat.num}
-                </div>
-                <div className="font-mono text-[10px] tracking-[0.15em] uppercase text-[rgba(255,255,255,0.35)] mt-1">
-                  {stat.label}
-                </div>
+    <section className="relative min-h-screen w-full flex flex-col justify-end pb-16 md:pb-24 overflow-hidden">
+      {/* Background — dark with subtle gradient like Palantir */}
+      <div className="absolute inset-0 bg-[#101010]">
+        {/* Dashboard mockup placeholder — centered laptop visual */}
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="relative w-[80%] max-w-[900px] aspect-[16/10] mt-[-5%]">
+            {/* Laptop frame */}
+            <div className="absolute inset-0 bg-[#1a1a1a] rounded-lg border border-white/10 overflow-hidden shadow-2xl">
+              {/* Screen content — grid of fake dashboard elements */}
+              <div className="absolute inset-2 rounded bg-[#0d0d0d] p-4 grid grid-cols-4 grid-rows-3 gap-2">
+                {Array.from({ length: 12 }).map((_, i) => (
+                  <div
+                    key={i}
+                    className="rounded bg-gradient-to-br from-[#1a1a2e] to-[#16213e] border border-white/5 flex items-center justify-center"
+                  >
+                    <div className="w-full h-full p-2 flex flex-col gap-1">
+                      <div className="h-1 w-8 bg-white/10 rounded" />
+                      <div className="flex-1 flex items-end gap-[2px]">
+                        {Array.from({ length: 6 }).map((_, j) => (
+                          <div
+                            key={j}
+                            className="flex-1 rounded-t"
+                            style={{
+                              height: `${20 + Math.random() * 70}%`,
+                              background: i % 3 === 0
+                                ? `rgba(99, 102, 241, ${0.3 + Math.random() * 0.4})`
+                                : `rgba(255, 255, 255, ${0.05 + Math.random() * 0.1})`,
+                            }}
+                          />
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
-          ))}
-        </motion.div>
+            {/* Laptop base */}
+            <div className="absolute -bottom-2 left-[10%] right-[10%] h-3 bg-[#1a1a1a] rounded-b-xl border-x border-b border-white/10" />
+          </div>
+        </div>
+        {/* Gradient overlay — text readable over laptop */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#101010] via-[#101010]/60 to-transparent" />
       </div>
 
-      {/* Scroll indicator */}
+      {/* Headline — Palantir style: massive, overlapping the visual */}
       <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.2, duration: 0.8 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3"
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+        className="relative z-10 max-w-[1500px] mx-auto px-6 md:px-10 w-full"
       >
-        <div className="w-px h-8 bg-gradient-to-b from-transparent to-[rgba(255,255,255,0.2)] animate-pulse" />
-        <span className="font-mono text-[9px] tracking-[0.3em] uppercase text-[rgba(255,255,255,0.2)]">
-          Scroll
-        </span>
+        <h1 className="hero-headline max-w-[1000px]">
+          AI-Powered Automation
+          <br />
+          for Every Deal
+        </h1>
       </motion.div>
     </section>
   )
