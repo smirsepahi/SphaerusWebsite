@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { SphaerusIcon } from './icons'
 
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false)
@@ -21,22 +22,7 @@ export default function Nav() {
       <div className="max-w-[1500px] mx-auto px-6 md:px-10 h-[72px] flex items-center justify-between">
         {/* Logo — Palantir style: simple wordmark */}
         <a href="#" className="flex items-center gap-2.5 no-underline">
-          <svg className="w-[22px] h-[30px]" viewBox="0 0 40 54" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="2" y="48" width="36" height="3" fill="white" opacity="0.9"/>
-            <rect x="5" y="44" width="30" height="4" fill="white" opacity="0.9"/>
-            <rect x="8"  y="14" width="2.5" height="30" rx="1" fill="white" opacity="0.85"/>
-            <rect x="12" y="14" width="2.5" height="30" rx="1" fill="white" opacity="0.85"/>
-            <rect x="16" y="14" width="2.5" height="30" rx="1" fill="white" opacity="0.85"/>
-            <rect x="20" y="14" width="2.5" height="30" rx="1" fill="white" opacity="0.85"/>
-            <rect x="24" y="14" width="2.5" height="30" rx="1" fill="white" opacity="0.85"/>
-            <rect x="28" y="14" width="2.5" height="30" rx="1" fill="white" opacity="0.85"/>
-            <rect x="1"  y="9"  width="38" height="3" fill="white" opacity="0.9"/>
-            <rect x="4"  y="12" width="32" height="2" fill="white" opacity="0.9"/>
-            <path d="M4 10 Q4 4 10 4 Q14 4 14 8" stroke="white" strokeWidth="1.5" fill="none" strokeLinecap="round" opacity="0.9"/>
-            <path d="M36 10 Q36 4 30 4 Q26 4 26 8" stroke="white" strokeWidth="1.5" fill="none" strokeLinecap="round" opacity="0.9"/>
-            <circle cx="10" cy="6" r="1.5" fill="white" opacity="0.85"/>
-            <circle cx="30" cy="6" r="1.5" fill="white" opacity="0.85"/>
-          </svg>
+          <SphaerusIcon className="w-[20px] h-[20px]" color="white" />
           <span className="text-[18px] font-medium tracking-[0.18em] uppercase text-white leading-none">
             Sphaerus
           </span>
