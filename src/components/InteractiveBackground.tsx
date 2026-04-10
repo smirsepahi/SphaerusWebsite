@@ -8,7 +8,7 @@ interface Point {
 
 export default function InteractiveBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
-  const mouseRef = useRef({ x: 0, y: 0 })
+  const mouseRef = useRef({ x: -1, y: -1, inside: false })
   const pointsRef = useRef<Point[]>([])
   const rafRef = useRef<number>(0)
 
@@ -20,31 +20,51 @@ export default function InteractiveBackground() {
     if (!ctx) return
 
     const resize = () => {
-      canvas.width = window.innerWidth
-      canvas.height = window.innerHeight
+      canvas.width = canvas.offsetWidth
+      canvas.height = canvas.offsetHeight
     }
     resize()
     window.addEventListener('resize', resize)
 
-    const handleMouseMove = (e: MouseEvent) => {
-      mouseRef.current = { x: e.clientX, y: e.clientY }
-      // Add trail points
-      pointsRef.current.push({
-        x: e.clientX,
-        y: e.clientY,
-        age: 0,
-      })
-      // Limit trail length
-      if (pointsRef.current.length > 80) {
-        pointsRef.current.shift()
+    const getCanvasCoords = (e: MouseEvent) => {
+      const rect = canvas.getBoundingClientRect()
+      return {
+        x: e.clientX - rect.left,
+        y: e.clientY - rect.top,
       }
     }
+
+    const handleMouseMove = (e: MouseEvent) => {
+      const rect = canvas.getBoundingClientRect()
+      const x = e.clientX - rect.left
+      const y = e.clientY - rect.top
+      const inside =
+        e.clientX >= rect.left &&
+        e.clientX <= rect.right &&
+        e.clientY >= rect.top &&
+        e.clientY <= rect.bottom
+
+      mouseRef.current = { x, y, inside }
+
+      if (inside) {
+        pointsRef.current.push({ x, y, age: 0 })
+        if (pointsRef.current.length > 80) {
+          pointsRef.current.shift()
+        }
+      }
+    }
+
+    const handleMouseLeave = () => {
+      mouseRef.current = { x: -1, y: -1, inside: false }
+    }
+
     window.addEventListener('mousemove', handleMouseMove)
+    canvas.addEventListener('mouseleave', handleMouseLeave)
 
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height)
 
-      const { x, y } = mouseRef.current
+      const { x, y, inside } = mouseRef.current
 
       // Draw subtle grid
       ctx.strokeStyle = 'rgba(255, 255, 255, 0.015)'
@@ -63,8 +83,9 @@ export default function InteractiveBackground() {
         ctx.stroke()
       }
 
-      // Illuminate grid cells near mouse
-      if (x > 0 || y > 0) {
+      // Only draw mouse effects when cursor is inside the canvas
+      if (inside) {
+        // Illuminate grid cells near mouse
         for (let gx = 0; gx < canvas.width; gx += gridSize) {
           for (let gy = 0; gy < canvas.height; gy += gridSize) {
             const cx = gx + gridSize / 2
@@ -76,12 +97,10 @@ export default function InteractiveBackground() {
               const intensity = 1 - dist / maxDist
               const alpha = intensity * 0.08
 
-              // Blue-purple gradient based on position
               const hue = 220 + (cx / canvas.width) * 40
               ctx.fillStyle = `hsla(${hue}, 70%, 55%, ${alpha})`
               ctx.fillRect(gx, gy, gridSize, gridSize)
 
-              // Brighter border on close cells
               if (dist < 120) {
                 const borderAlpha = (1 - dist / 120) * 0.15
                 ctx.strokeStyle = `hsla(${hue}, 70%, 60%, ${borderAlpha})`
@@ -109,8 +128,8 @@ export default function InteractiveBackground() {
         ctx.fillRect(x - 80, y - 80, 160, 160)
       }
 
-      // Draw trail points
-      pointsRef.current.forEach((point, i) => {
+      // Draw trail points (fade out even after mouse leaves)
+      pointsRef.current.forEach((point) => {
         point.age += 1
         const maxAge = 60
         if (point.age > maxAge) return
@@ -128,15 +147,20 @@ export default function InteractiveBackground() {
       // Clean up dead points
       pointsRef.current = pointsRef.current.filter((p) => p.age < 60)
 
-      // Ambient floating particles
+      // Ambient floating particles (always visible, react to mouse only when inside)
       const time = Date.now() * 0.001
       for (let i = 0; i < 30; i++) {
         const px = ((Math.sin(time * 0.3 + i * 2.1) + 1) / 2) * canvas.width
         const py = ((Math.cos(time * 0.2 + i * 1.7) + 1) / 2) * canvas.height
-        const dist = Math.sqrt((px - x) ** 2 + (py - y) ** 2)
-        const proximity = Math.max(0, 1 - dist / 400)
-        const baseAlpha = 0.02 + proximity * 0.08
-        const particleSize = 1 + proximity * 2
+        let baseAlpha = 0.02
+        let particleSize = 1
+
+        if (inside) {
+          const dist = Math.sqrt((px - x) ** 2 + (py - y) ** 2)
+          const proximity = Math.max(0, 1 - dist / 400)
+          baseAlpha = 0.02 + proximity * 0.08
+          particleSize = 1 + proximity * 2
+        }
 
         ctx.beginPath()
         ctx.arc(px, py, particleSize, 0, Math.PI * 2)
@@ -152,6 +176,7 @@ export default function InteractiveBackground() {
     return () => {
       window.removeEventListener('resize', resize)
       window.removeEventListener('mousemove', handleMouseMove)
+      canvas.removeEventListener('mouseleave', handleMouseLeave)
       cancelAnimationFrame(rafRef.current)
     }
   }, [])
