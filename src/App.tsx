@@ -4,6 +4,7 @@ import Nav from './components/Nav'
 import Hero from './components/Hero'
 import Platforms from './components/Platforms'
 import Integrations from './components/Integrations'
+import Offerings from './components/Offerings'
 import CTA from './components/CTA'
 import Footer from './components/Footer'
 import PlatformPage from './components/PlatformPage'
@@ -15,6 +16,7 @@ function HomePage() {
       <Hero />
       <Platforms />
       <Integrations />
+      <Offerings />
       <CTA />
       <Footer />
     </>
