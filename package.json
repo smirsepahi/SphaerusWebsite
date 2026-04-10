@@ -16,7 +16,8 @@
     "@fontsource/space-grotesk": "^5.2.10",
     "framer-motion": "^12.38.0",
     "react": "^19.2.5",
-    "react-dom": "^19.2.5"
+    "react-dom": "^19.2.5",
+    "react-router-dom": "^6.30.3"
   },
   "devDependencies": {
     "@types/react": "^19.2.14",

@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import { SphaerusIcon } from './icons'
 
 export default function Nav() {
@@ -21,12 +22,12 @@ export default function Nav() {
     >
       <div className="max-w-[1500px] mx-auto px-6 md:px-10 h-[72px] flex items-center justify-between">
         {/* Logo — Palantir style: simple wordmark */}
-        <a href="#" className="flex items-center gap-2.5 no-underline">
+        <Link to="/" className="flex items-center gap-2.5 no-underline">
           <SphaerusIcon className="w-[20px] h-[20px]" color="white" />
           <span className="text-[18px] font-medium tracking-[0.18em] uppercase text-white leading-none">
             Sphaerus
           </span>
-        </a>
+        </Link>
 
         {/* Right side — Palantir style: CTA button + hamburger */}
         <div className="flex items-center gap-4">
