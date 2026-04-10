@@ -21,12 +21,9 @@ export default function Nav() {
       }`}
     >
       <div className="max-w-[1500px] mx-auto px-6 md:px-10 h-[72px] flex items-center justify-between">
-        {/* Logo — Palantir style: simple wordmark */}
-        <Link to="/" className="flex items-center gap-2.5 no-underline">
-          <SphaerusIcon className="w-[20px] h-[20px]" color="white" />
-          <span className="text-[18px] font-medium tracking-[0.18em] uppercase text-white leading-none">
-            Sphaerus
-          </span>
+        {/* Logo */}
+        <Link to="/" className="flex items-center no-underline">
+          <img src="/sphaerus-logo.png" alt="Sphaerus" className="h-[22px]" />
         </Link>
 
         {/* Right side — Palantir style: CTA button + hamburger */}
