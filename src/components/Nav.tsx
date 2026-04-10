@@ -23,7 +23,7 @@ export default function Nav() {
       <div className="max-w-[1500px] mx-auto px-6 md:px-10 h-[72px] flex items-center justify-between">
         {/* Logo */}
         <Link to="/" className="flex items-center no-underline">
-          <img src="/sphaerus-logo.png" alt="Sphaerus" className="h-[22px]" />
+          <img src="/sphaerus-logo.png" alt="Sphaerus" className="h-[22px] invert" />
         </Link>
 
         {/* Right side — Palantir style: CTA button + hamburger */}
