@@ -27,23 +27,8 @@ const platforms = [
 
 export default function Platforms() {
   return (
-    <section id="platforms" className="relative py-32 md:py-48">
+    <section id="platforms" className="relative pt-16 md:pt-24 pb-32 md:pb-48">
       <div className="max-w-[1500px] mx-auto px-6 md:px-10">
-        {/* Intro text — Palantir style */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-100px' }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="max-w-[700px] mb-20"
-        >
-          <p className="text-[1.4rem] md:text-[1.8rem] font-light leading-[1.4] text-white/70">
-            Our software powers{' '}
-            <span className="text-white">real-time, AI-driven</span>{' '}
-            decisions across every stage of the commercial real estate lifecycle.
-          </p>
-        </motion.div>
-
         {/* Section title */}
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
