@@ -3,7 +3,7 @@ import InteractiveBackground from './InteractiveBackground'
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen w-full flex flex-col justify-end pb-16 md:pb-24 overflow-hidden">
+    <section className="relative h-[70vh] w-full flex flex-col justify-end pb-12 md:pb-16 overflow-hidden">
       {/* Interactive mouse-follow background */}
       <InteractiveBackground />
 
