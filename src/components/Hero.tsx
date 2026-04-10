@@ -33,7 +33,7 @@ export default function Hero() {
         transition={{ delay: 1.5, duration: 1 }}
         className="relative z-10 flex flex-col items-center gap-3 cursor-pointer group pb-8"
       >
-        <span className="text-[10px] font-medium tracking-[0.3em] uppercase text-white/30 group-hover:text-white/50 transition-colors" style={{ fontFamily: '"IBM Plex Mono", monospace' }}>
+        <span className="text-[10px] font-medium tracking-[0.3em] uppercase text-white/60 group-hover:text-white transition-colors" style={{ fontFamily: '"IBM Plex Mono", monospace' }}>
           Scroll to explore
         </span>
         <motion.svg
@@ -45,7 +45,7 @@ export default function Hero() {
           fill="none"
           stroke="currentColor"
           strokeWidth="1.5"
-          className="text-white/30 group-hover:text-white/50 transition-colors"
+          className="text-white/60 group-hover:text-white transition-colors"
         >
           <path d="M3 6l5 5 5-5" />
         </motion.svg>

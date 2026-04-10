@@ -63,7 +63,7 @@ export default function Nav() {
                 key={link.href}
                 href={link.href}
                 onClick={() => setMenuOpen(false)}
-                className="block text-[2.5rem] font-light text-white/60 hover:text-white transition-colors py-3 border-b border-white/5"
+                className="block text-[2.5rem] font-light text-white/80 hover:text-white transition-colors py-3 border-b border-white/5"
               >
                 {link.label}
               </a>
