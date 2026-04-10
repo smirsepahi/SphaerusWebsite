@@ -3,7 +3,7 @@ import InteractiveBackground from './InteractiveBackground'
 
 export default function Hero() {
   return (
-    <section className="relative h-[70vh] w-full flex flex-col justify-end pb-12 md:pb-16 overflow-hidden">
+    <section className="relative min-h-screen w-full flex flex-col justify-end pb-16 md:pb-24 overflow-hidden">
       {/* Interactive mouse-follow background */}
       <InteractiveBackground />
 
@@ -23,6 +23,32 @@ export default function Hero() {
           for Every Deal
         </h1>
       </motion.div>
+
+      {/* Scroll indicator */}
+      <motion.a
+        href="#products"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.5, duration: 1 }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-3 cursor-pointer group"
+      >
+        <span className="text-[10px] font-medium tracking-[0.3em] uppercase text-white/30 group-hover:text-white/50 transition-colors" style={{ fontFamily: '"IBM Plex Mono", monospace' }}>
+          Scroll to explore
+        </span>
+        <motion.svg
+          animate={{ y: [0, 6, 0] }}
+          transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
+          width="16"
+          height="16"
+          viewBox="0 0 16 16"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          className="text-white/30 group-hover:text-white/50 transition-colors"
+        >
+          <path d="M3 6l5 5 5-5" />
+        </motion.svg>
+      </motion.a>
     </section>
   )
 }
