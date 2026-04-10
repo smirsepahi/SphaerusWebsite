@@ -57,7 +57,6 @@ export default function Nav() {
           <div className="max-w-[600px]">
             {[
               { href: '#platforms', label: 'Platforms' },
-              { href: '#products', label: 'Products' },
               { href: '#contact', label: 'Contact' },
             ].map((link) => (
               <a
