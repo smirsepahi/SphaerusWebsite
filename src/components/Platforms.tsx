@@ -63,7 +63,7 @@ export default function Platforms() {
                       color={platform.color}
                     />
                     <div className="flex flex-col md:flex-row md:items-center gap-1 md:gap-12">
-                      <h3 className="text-[2rem] md:text-[3rem] font-light tracking-tight text-white transition-colors whitespace-nowrap">
+                      <h3 className="text-[2rem] md:text-[3rem] font-light tracking-tight text-white transition-colors whitespace-nowrap md:w-[200px]">
                         {platform.name}
                       </h3>
                       <p className="hidden md:block text-[14px] text-white max-w-[400px]" style={{ fontFamily: '"IBM Plex Mono", monospace' }}>
