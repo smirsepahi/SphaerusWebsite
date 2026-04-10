@@ -9,6 +9,7 @@ interface Point {
 export default function InteractiveBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const mouseRef = useRef({ x: -1, y: -1, inside: false })
+  const clientMouseRef = useRef({ clientX: -1, clientY: -1 })
   const pointsRef = useRef<Point[]>([])
   const rafRef = useRef<number>(0)
 
@@ -26,26 +27,26 @@ export default function InteractiveBackground() {
     resize()
     window.addEventListener('resize', resize)
 
-    const getCanvasCoords = (e: MouseEvent) => {
+    const updateMouseFromClient = () => {
+      const { clientX, clientY } = clientMouseRef.current
+      if (clientX < 0) return
       const rect = canvas.getBoundingClientRect()
-      return {
-        x: e.clientX - rect.left,
-        y: e.clientY - rect.top,
-      }
+      const x = clientX - rect.left
+      const y = clientY - rect.top
+      const inside =
+        clientX >= rect.left &&
+        clientX <= rect.right &&
+        clientY >= rect.top &&
+        clientY <= rect.bottom
+
+      mouseRef.current = { x, y, inside }
     }
 
     const handleMouseMove = (e: MouseEvent) => {
-      const rect = canvas.getBoundingClientRect()
-      const x = e.clientX - rect.left
-      const y = e.clientY - rect.top
-      const inside =
-        e.clientX >= rect.left &&
-        e.clientX <= rect.right &&
-        e.clientY >= rect.top &&
-        e.clientY <= rect.bottom
+      clientMouseRef.current = { clientX: e.clientX, clientY: e.clientY }
+      updateMouseFromClient()
 
-      mouseRef.current = { x, y, inside }
-
+      const { x, y, inside } = mouseRef.current
       if (inside) {
         pointsRef.current.push({ x, y, age: 0 })
         if (pointsRef.current.length > 80) {
@@ -58,12 +59,19 @@ export default function InteractiveBackground() {
       mouseRef.current = { x: -1, y: -1, inside: false }
     }
 
+    const handleScroll = () => {
+      updateMouseFromClient()
+    }
+
     window.addEventListener('mousemove', handleMouseMove)
+    window.addEventListener('scroll', handleScroll, { passive: true })
     canvas.addEventListener('mouseleave', handleMouseLeave)
 
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height)
 
+      // Recalculate each frame to handle scroll
+      updateMouseFromClient()
       const { x, y, inside } = mouseRef.current
 
       // Draw subtle grid
@@ -176,6 +184,7 @@ export default function InteractiveBackground() {
     return () => {
       window.removeEventListener('resize', resize)
       window.removeEventListener('mousemove', handleMouseMove)
+      window.removeEventListener('scroll', handleScroll)
       canvas.removeEventListener('mouseleave', handleMouseLeave)
       cancelAnimationFrame(rafRef.current)
     }
