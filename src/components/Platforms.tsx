@@ -3,17 +3,17 @@ import { motion } from 'framer-motion'
 const platforms = [
   {
     name: 'Atlas',
-    description: 'Deal origination and market intelligence for developers, brokers, and fund managers.',
+    description: 'The stewardship layer for asset managers — portfolio tracking, performance analytics, and property-level intelligence.',
     href: '#',
   },
   {
     name: 'Legion',
-    description: 'Workflow automation — lease abstraction, reporting, underwriting, and document processing.',
+    description: 'Brokerage command center — coordinate agents, automate listings, manage leads and transactions at scale.',
     href: '#',
   },
   {
     name: 'Astra',
-    description: 'Portfolio dashboards, scenario modeling, IRR calculations, and LP reporting.',
+    description: 'Investment intelligence — deal sourcing, underwriting automation, fund strategy, and LP reporting.',
     href: '#',
   },
 ]

@@ -3,20 +3,20 @@ import { useRef } from 'react'
 const products = [
   {
     name: 'Atlas',
-    tagline: 'The Intelligence Layer for Deal Origination',
-    description: 'AI-driven deal sourcing, comp analysis, and market intelligence. Atlas surfaces opportunities your competitors miss.',
+    tagline: 'AI for Asset Management',
+    description: 'Portfolio oversight, performance tracking, and NOI optimization across every property. Atlas carries the weight so your team can focus on strategy.',
     color: '#6366f1',
   },
   {
     name: 'Legion',
-    tagline: 'Workflow Automation at Scale',
-    description: 'From lease abstraction to LP reporting, Legion automates the manual work that drowns your analysts. 10+ hours saved per week.',
+    tagline: 'AI for Brokerage at Scale',
+    description: 'Manage agents, listings, leads, and transactions in parallel. Legion coordinates your entire brokerage force as one.',
     color: '#3b82f6',
   },
   {
     name: 'Astra',
-    tagline: 'Portfolio Intelligence & Decision Support',
-    description: 'Real-time portfolio dashboards, scenario modeling, and waterfall calculations. Astra turns your data into decisions.',
+    tagline: 'AI for Investment Firms',
+    description: 'Deal sourcing, underwriting, fund strategy, and LP reporting. Astra gives your investment team the vision to reach further.',
     color: '#8b5cf6',
   },
 ]
