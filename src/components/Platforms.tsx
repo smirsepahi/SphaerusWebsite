@@ -28,7 +28,7 @@ const platforms = [
 
 export default function Platforms() {
   return (
-    <section id="platforms" className="relative pt-16 md:pt-24 pb-8 md:pb-12">
+    <section id="platforms" className="relative pt-4 md:pt-6 pb-8 md:pb-12">
       <div className="max-w-[1500px] mx-auto px-6 md:px-10">
         {/* Section title */}
         <motion.h2
