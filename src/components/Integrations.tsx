@@ -28,7 +28,7 @@ export default function Integrations() {
           className="text-[15px] text-white/70 max-w-[500px] mb-16"
           style={{ fontFamily: '"IBM Plex Mono", monospace' }}
         >
-          Our AI connects to the tools your team already uses — pulling from the top housing data sources.
+          We connect your team to the tools they already use — pulling from the top housing data sources.
         </motion.p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-white/10">

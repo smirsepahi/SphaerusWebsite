@@ -15,9 +15,11 @@ export default function Nav() {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled
-          ? 'bg-[rgba(16,16,16,0.95)] backdrop-blur-md'
-          : 'bg-transparent'
+        menuOpen
+          ? 'bg-[#101010]'
+          : scrolled
+            ? 'bg-[rgba(16,16,16,0.95)] backdrop-blur-md'
+            : 'bg-transparent'
       }`}
     >
       <div className="max-w-[1500px] mx-auto px-6 md:px-10 h-[72px] flex items-center justify-between">
