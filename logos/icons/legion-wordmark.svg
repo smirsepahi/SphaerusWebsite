@@ -1,0 +1,9 @@
+<svg viewBox="0 0 400 100" fill="black" xmlns="http://www.w3.org/2000/svg" width="800" height="200">
+  <!-- Icon -->
+  <g fill="none" stroke="black">
+    <polyline points="20,25 50,55 80,25" stroke-width="10" stroke-linecap="square" stroke-linejoin="miter"/>
+    <polyline points="20,50 50,80 80,50" stroke-width="10" stroke-linecap="square" stroke-linejoin="miter"/>
+  </g>
+  <!-- Name -->
+  <text x="110" y="68" font-family="'Space Grotesk', 'Helvetica Neue', Arial, sans-serif" font-size="52" font-weight="300" letter-spacing="2" fill="black">Legion</text>
+</svg>

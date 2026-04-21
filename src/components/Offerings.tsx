@@ -13,8 +13,9 @@ const phases = [
     phase: 'Phase 2',
     title: 'Build',
     items: [
-      { name: 'AI Tool Onboarding', detail: null },
+      { name: 'Claude Enterprise Onboarding', detail: null },
       { name: 'Workflow Automation', detail: null },
+      { name: 'AI Tool Integration', detail: 'all major platforms' },
       { name: 'Custom AI Tool Build', detail: null },
       { name: 'Full AI Transformation', detail: null },
     ],
@@ -36,7 +37,9 @@ const addOns = [
   'Executive Strategy Session',
   'Custom Prompt Library',
   'Advisory Retainer',
-  'Ad-Hoc Consulting',
+  'Ad-Hoc Projects',
+  'In-House Software Development',
+  'Bespoke AI Agents',
 ]
 
 export default function Offerings() {
