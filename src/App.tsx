@@ -23,18 +23,28 @@ function HomePage() {
   )
 }
 
-function ScrollToTop() {
-  const { pathname } = useLocation()
+function ScrollToHash() {
+  const { pathname, hash } = useLocation()
   useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [pathname])
+    if (hash) {
+      // Small delay to let the page render before scrolling to the element
+      setTimeout(() => {
+        const el = document.querySelector(hash)
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth' })
+        }
+      }, 100)
+    } else {
+      window.scrollTo(0, 0)
+    }
+  }, [pathname, hash])
   return null
 }
 
 function App() {
   return (
     <div className="min-h-screen bg-[#101010]">
-      <ScrollToTop />
+      <ScrollToHash />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/platforms/:slug" element={<PlatformPage />} />
