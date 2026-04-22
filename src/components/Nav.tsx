@@ -50,26 +50,28 @@ export default function Nav() {
         </div>
       </div>
 
-      {/* Full-screen menu overlay */}
-      {menuOpen && (
-        <div className="fixed inset-0 top-[72px] bg-[#101010] z-40 px-10 py-16">
-          <div className="max-w-[600px]">
-            {[
-              { href: '#platforms', label: 'Platforms' },
-              { href: '#contact', label: 'Contact' },
-            ].map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={() => setMenuOpen(false)}
-                className="block text-[2.5rem] font-light text-white/80 hover:text-white transition-colors py-3 border-b border-white/5"
-              >
-                {link.label}
-              </a>
-            ))}
-          </div>
+      {/* Dropdown menu */}
+      <div
+        className={`absolute top-full left-0 right-0 bg-[#101010] border-b border-white/10 overflow-hidden transition-all duration-200 ease-out ${
+          menuOpen ? 'max-h-[300px] opacity-100' : 'max-h-0 opacity-0'
+        }`}
+      >
+        <div className="max-w-[1500px] mx-auto px-6 md:px-10 py-6">
+          {[
+            { href: '#platforms', label: 'Platforms' },
+            { href: '#contact', label: 'Contact' },
+          ].map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              onClick={() => setMenuOpen(false)}
+              className="block text-[1.2rem] font-light text-white/80 hover:text-white transition-colors py-3"
+            >
+              {link.label}
+            </a>
+          ))}
         </div>
-      )}
+      </div>
     </nav>
   )
 }
