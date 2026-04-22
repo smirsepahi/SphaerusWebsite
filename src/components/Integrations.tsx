@@ -1,9 +1,9 @@
 import { motion } from 'framer-motion'
 
 const integrations = [
-  { label: '#1 Single Family Listing Site' },
-  { label: '#1 Real Estate Listing Tracker' },
-  { label: '#1 Commercial Property Database' },
+  { label: 'Single Family Listing Sites' },
+  { label: 'Real Estate Listing Trackers' },
+  { label: 'Commercial Property Databases' },
 ]
 
 export default function Integrations() {
