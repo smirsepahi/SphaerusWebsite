@@ -79,7 +79,7 @@ export default function Products() {
 
         {/* "See All" card */}
         <div className="product-card flex items-center justify-center min-w-[250px]">
-          <a href="#platforms" className="flex items-center gap-2 text-white/40 hover:text-white transition-colors text-[14px]">
+          <a href="/#platforms" className="flex items-center gap-2 text-white/40 hover:text-white transition-colors text-[14px]">
             See All
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5">
               <path d="M3 8h10M9 4l4 4-4 4" />

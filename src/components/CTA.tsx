@@ -20,7 +20,7 @@ export default function CTA() {
               Request a Demo
             </a>
             <a
-              href="#platforms"
+              href="/#platforms"
               className="inline-flex items-center justify-center px-10 py-4 rounded-full border border-white/20 text-white text-[14px] font-medium hover:bg-white/5 transition-colors"
             >
               Explore Platforms

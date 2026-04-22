@@ -58,8 +58,8 @@ export default function Nav() {
       >
         <div className="max-w-[1500px] mx-auto px-6 md:px-10 py-6">
           {[
-            { href: '#platforms', label: 'Platforms' },
-            { href: '#contact', label: 'Contact' },
+            { href: '/#platforms', label: 'Platforms' },
+            { href: '/#contact', label: 'Contact' },
           ].map((link) => (
             <a
               key={link.href}

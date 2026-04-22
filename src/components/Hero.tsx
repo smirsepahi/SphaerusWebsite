@@ -27,7 +27,7 @@ export default function Hero() {
 
       {/* Scroll indicator */}
       <motion.a
-        href="#platforms"
+        href="/#platforms"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5, duration: 1 }}
